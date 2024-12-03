@@ -1125,6 +1125,7 @@ h3.my-profession
     align-items: flex-start; 
     margin: 20px;
     font-weight: bolder;
+    color: var(--text-black-900);
       
 }
 

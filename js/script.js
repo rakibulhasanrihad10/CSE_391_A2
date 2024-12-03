@@ -1,14 +1,3 @@
-// ============= typing animation ============= 
-
-// var typed = new Typed(".typing", {
-//     strings:["Computer Science Undergraduate Student", "Muslim", "Programmer", "Learner"],
-//     typeSpeed: 100,
-//     backSpeed: 60,
-//     loop: true
-// })
-
-// ============= typing animation ============= 
-
 const nav = document.querySelector(".nav"),
     navList = nav.querySelectorAll("li"),
     totalNavList = navList.length,
@@ -222,7 +211,27 @@ gqbutton.addEventListener('click', autoQuote);
 
 function analyzeNumbers() {
     const input = document.getElementById('numberInput').value;
-    const numbers = input.split(',').map(Number);
+    // Split the input into an array of strings
+    const items = input.split(',');
+    const numbers = [];
+
+    // Manually validate each item
+    for (let i = 0; i < items.length; i++) {
+        const trimmedItem = items[i].trim(); // Remove extra spaces
+        if (!isNaN(trimmedItem) && trimmedItem !== '') {
+            numbers.push(Number(trimmedItem)); // Add valid numbers to the array
+        }
+    }
+
+    // If no valid numbers are provided
+    if (numbers.length === 0) {
+        document.getElementById('maxValue').textContent = 'N/A';
+        document.getElementById('minValue').textContent = 'N/A';
+        document.getElementById('sumValue').textContent = 'N/A';
+        document.getElementById('averageValue').textContent = 'N/A';
+        document.getElementById('reverseOrder').textContent = 'N/A';
+        return;
+    }
 
     const max = Math.max(...numbers);
     const min = Math.min(...numbers);
@@ -265,9 +274,13 @@ const textArea = document.getElementById('text-area');
 
     // Reverse
     document.getElementById('reverse').addEventListener('click', () => {
-      const lines = textArea.value.split('\n');
-      textArea.value = lines.map(line => line.split('').reverse().join('')).join('\n');
-    });
+        const lines = textArea.value.split('\n');
+        textArea.value = lines
+          .map(line => line.split('').reverse().join('')) // Reverse characters in each line
+          .reverse()                                     // Reverse the order of lines
+          .join('\n');                                   // Join lines back into a string
+      });
+      
 
     // Strip Blank
     document.getElementById('strip-blank').addEventListener('click', () => {
