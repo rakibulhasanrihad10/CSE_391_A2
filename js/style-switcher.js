@@ -55,7 +55,7 @@ const quoteBox = document.getElementById("quoteBox");
 const qpbox = document.getElementById("qpbox")
 const qpDiv = document.querySelector(".qp");
 const authorText = document.getElementById("author"); 
-
+const gqButton = document.getElementById("gqbutton");
 const themeButtons = document.querySelectorAll(".theme-btn");
 
 
@@ -70,7 +70,7 @@ themeButtons.forEach((button) => {
             
             quoteBox.className = "quote padd-15";
             qpDiv.className = "qp";
-
+            
             
             quoteBox.classList.add(theme);
             qpDiv.classList.add(theme);
@@ -84,6 +84,9 @@ themeButtons.forEach((button) => {
             qpDiv.style.backgroundColor = styles.getPropertyValue("--qp-bg-color");
             qpDiv.style.color = styles.getPropertyValue("--font-color");
             authorText.style.color = styles.getPropertyValue("--author-color");
+            authorText.style.backgroundColor = styles.getPropertyValue("--qp-bg-color");
+            gqButton.style.backgroundColor = styles.getPropertyValue("--qp-bg-color");
+            gqButton.style.color = styles.getPropertyValue("--font-color");
         }
     });
 });

@@ -722,7 +722,7 @@
             <!-- ===== Math Tools Section Start ===== --> 
             <section class="mathtools section" id="mathtools">
                 <div class="container">
-                    <div class = "unit_converter">
+                    <div class = "row padd-15">
 
 
                         <div class="row">
@@ -733,21 +733,71 @@
 
                             <div class="padd-15">
                                 <form id="numberForm">
-                                    <level for="numberInput" class="p"> Enter numbers separated by commas: </level>
+                                    <level for="numberInput" class="p"> Enter input separated by commas: </level>
                                     <input type="text" id="numberInput" class="numbersInput" placeholder="e.g., 1,2,3,4" oninput="analyzeNumbers()">
                                     
                                 </form>                               
                             </div>
                         </div>
-                        <div id="results" class="valueTitle">
-                            <p>Max: <span id="maxValue"></span></p>
-                            <p>Min: <span id="minValue"></span></p>
-                            <p>Sum: <span id="sumValue"></span></p>
-                            <p>Average: <span id="averageValue"></span></p>
-                            <p>Reverse: <span id="reverseOrder"></span></p>
-                        </div>    
-                    </div>                         
+                        <!-- <div  class="row"> -->
+
+                            <div class="outerdiv">
+
+                                <div id="results"  class="mathtools">
+                                    <div class="mathtools-item padd-15">
+                                        <div class="mathtools-item-inner">
+                                            <h4>Max:</h4>
+                                            <p> <span id="maxValue"></span> </p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div id="results"  class="mathtools">
+                                    <div class="mathtools-item padd-15">
+                                        <div class="mathtools-item-inner">
+                                            <h4>Min:</h4>
+                                            <p> <span id="minValue"></span> </p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div id="results"  class="mathtools">
+                                    <div class="mathtools-item padd-15">
+                                        <div class="mathtools-item-inner">
+                                            <h4>Sum: </h4>
+                                            <p> <span id="sumValue"></span> </p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div id="results"  class="mathtools">
+                                    <div class="mathtools-item padd-15">
+                                        <div class="mathtools-item-inner">
+                                            <h4> Average: </h4>
+                                            <p> <span id="averageValue"></span> </p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div id="results"  class="mathtools">
+                                    <div class="mathtools-item padd-15">
+                                        <div class="mathtools-item-inner">
+                                            <h4>Reverse:</h4>
+                                            <p> <span id="reverseOrder"></span> </p>
+                                        </div> 
+                                    </div>  
+                                </div>
+
+                            </div>
+         
+    
+                        <!-- </div> -->
+
+                                                  
+                    </div>   
+
                 </div>
+
             </section>
             <!-- ===== Math Tools Section End ===== -->
 
@@ -874,21 +924,22 @@
                                 <div class="qp" id="qpbox">
                                     <p id="quote">Loading...</p>
                                 </div>
-
                                 <div>
                                     <h4 id="author" class="qh4">Loading...</h4>
-                                    <button id="gqbutton" class="qbtn">Get Quote</button>
+                                </div>
 
+                                <div>
+                                    <button id="gqbutton" class="qbtn">Get Quote</button>
                                 </div>
 
                                 
                             </div>
 
                             <div class="theme-buttons">
-                                <button class="theme-btn" data-theme="theme1" style="background-color: #d2691e;">Theme</button>
-                                <button class="theme-btn" data-theme="theme2" style="background-color: #007acc;">Theme</button>
-                                <button class="theme-btn" data-theme="theme3" style="background-color: #ff1e00;">Theme</button>
-                                <button class="theme-btn" data-theme="theme4" style="background-color: #35933a;">Theme</button>
+                                <button class="theme-btn" data-theme="theme1" style="background-color: #d2691e;">Brown</button>
+                                <button class="theme-btn" data-theme="theme2" style="background-color: #007acc;">SkyBlue</button>
+                                <button class="theme-btn" data-theme="theme3" style="background-color: #ff1e00;">Red</button>
+                                <button class="theme-btn" data-theme="theme4" style="background-color: #35933a;">Green</button>
                             </div>
                             
                             <!-- ===== Quote End ===== -->

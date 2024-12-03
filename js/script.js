@@ -175,15 +175,15 @@ const randomQuote = [
     },
     {
         quote: "In three words I can sum up everything I have learned about life: it goes on",
-        author: "Robert Frost"
+        author: "― Robert Frost"
     },
     {
         quote: "We all need people who will give us feedback. That's how we improve",
-        author: "Bill Gates"
+        author: "― Bill Gates"
     },
     {
         quote: "It is better to be hated for what you are than to be loved for what you are not",
-        author: "Andre Gide"
+        author: "― Andre Gide"
     }
 ];
 

@@ -1097,44 +1097,86 @@ h3.my-profession
 }
 
 /* mathtools */
+.mathtools .container
+{
+    padding-bottom: 40px;
+    
+}
 
 .numbersInput
 {
     font-size: 16px;
     font-weight: 500;
-    padding: 12px 35px;
+    padding: 12px 110px;
     border-radius: 10px;
     display: inline-block;
     white-space: nowrap;
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-right: 10px;
 }
 
 .mathtools .p
 {
-    color: var(--skin-color);
-    font-size: 20px;
-}
-
-.mathtools .valueTitle
-{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    margin: 20px;
-    font-weight: bolder;
     color: var(--text-black-900);
-      
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.mathtools .mathtools-item
+{
+    margin-bottom: 5px;
+
+}
+
+.outerdiv
+{
+    background-color: var(--bg-black-100);
+    /* border: 1px solid var(--bg-black-50); */
+    border-radius: 10px;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    gap: 5px; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.mathtools .mathtools-item .mathtools-item-inner
+{
+    background-color: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    border-radius: 10px;
+    padding: 20px 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 110px;
+    max-height: 110px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 
 
 
-.mathtools .btn
+
+
+.mathtools .mathtools-item .mathtools-item-inner h4
 {
-    border-radius: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--skin-color);
+    font-weight: 700;
+    text-transform: capitalize;
+    
+}
+.mathtools .mathtools-item .mathtools-item-inner p
+{
+    font-size: 16px;
+    color: var(--text-black-700);
+    line-height: 25px;
+
 }
 
 
@@ -1334,6 +1376,20 @@ button {
     background-color: #e8f5e9;
     border: 3px solid;
 }
+
+.gq
+{
+    font-size: 25;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 25px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: #e8f5e9;
+    border: 3px solid;
+
+}
 .qh4
 {
     background: #d7d0d0;
@@ -1354,12 +1410,10 @@ button {
     color: white;
     border-radius: 5px;
     display: block;
-    border: none;
-    background: var(--skin-color);
+    /* border: 2px solid; */
     margin: 10px auto 0;
     margin-bottom: 10px;
     cursor: pointer;
-    
     transition: all 0.3s ease;
 }
 .qbtn:hover
@@ -1387,7 +1441,7 @@ button {
 }
 
 .theme-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
     transition: all 0.3s ease;
 }
 
@@ -1407,11 +1461,12 @@ button {
 /* Themes */
 .theme1 {
     --border-color: #d2691e;
-    --qp-bg-color: #fad7a1;
+    --qp-bg-color: #f2dfc3;
     --font-family: "Georgia", serif;
     --font-size: 16px;
-    --font-color: #d2691e; 
-    --author-color: #2e1c5b; 
+    --font-color: #662e06; 
+    --author-color: #662e06;
+    
 }
 
 .theme2 {
@@ -1420,12 +1475,13 @@ button {
     --font-family: "Verdana", sans-serif;
     --font-size: 18px;
     --font-color: #00509e;
-    --author-color: #003366; 
+    --author-color: #003366;
+    --gqbutton-color:  #00509e;
 }
 
 .theme3 {
     --border-color: #ff4500;
-    --qp-bg-color: #f49c9c;
+    --qp-bg-color: #fac8c8;
     --font-family: "Courier New", monospace;
     --font-size: 20px;
     --font-color: #8b0000; 
@@ -1434,10 +1490,10 @@ button {
 
 .theme4 {
     --border-color: #388e3c;
-    --qp-bg-color: #a2f7a9;
+    --qp-bg-color: #c9fbce;
     --font-family: "Arial", sans-serif;
     --font-size: 21px;
-    --font-color: #1b5e20; 
+    --font-color: #1a601e; 
     --author-color: #2c6e2f; 
 }
 
@@ -1593,6 +1649,7 @@ body {
     {
         display: none;
     }
+    
 }
 
 @media (max-width:767px)
@@ -1663,6 +1720,11 @@ body {
     {
         font-size: 15px;
     }
+    .numbersInput
+    {
+    padding: 12px 60px;
+    }
+
 
 }
 
