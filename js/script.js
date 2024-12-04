@@ -225,11 +225,11 @@ function analyzeNumbers() {
 
     // If no valid numbers are provided
     if (numbers.length === 0) {
-        document.getElementById('maxValue').textContent = 'N/A';
-        document.getElementById('minValue').textContent = 'N/A';
-        document.getElementById('sumValue').textContent = 'N/A';
-        document.getElementById('averageValue').textContent = 'N/A';
-        document.getElementById('reverseOrder').textContent = 'N/A';
+        document.getElementById('maxValue').textContent = '';
+        document.getElementById('minValue').textContent = '';
+        document.getElementById('sumValue').textContent = '';
+        document.getElementById('averageValue').textContent = '';
+        document.getElementById('reverseOrder').textContent = '';
         return;
     }
 
@@ -276,9 +276,9 @@ const textArea = document.getElementById('text-area');
     document.getElementById('reverse').addEventListener('click', () => {
         const lines = textArea.value.split('\n');
         textArea.value = lines
-          .map(line => line.split('').reverse().join('')) // Reverse characters in each line
-          .reverse()                                     // Reverse the order of lines
-          .join('\n');                                   // Join lines back into a string
+          .map(line => line.split('').reverse().join('')) 
+          .reverse()                                     
+          .join('\n');                                   
       });
       
 
