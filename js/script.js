@@ -253,23 +253,34 @@ function analyzeNumbers() {
 
 const textArea = document.getElementById('text-area');
 
-    // Clear It
+    // Clear
     document.getElementById('clear-it').addEventListener('click', () => {
       textArea.value = '';
     });
 
-    // Capitalize (Toggle between uppercase and lowercase)
+    // Upper Lower
     let isUpperCase = false;
     document.getElementById('capitalize').addEventListener('click', () => {
-      const lines = textArea.value.split('\n');
-      textArea.value = lines.map(line => isUpperCase ? line.toLowerCase() : line.toUpperCase()).join('\n');
-      isUpperCase = !isUpperCase;
-    });
+        const lines = textArea.value.split('\n'); 
+        if (isUpperCase) {
+          
+          textArea.value = lines.map(line => line.toLowerCase()).join('\n');
+        } else {
+          
+          textArea.value = lines.map(line => line.toUpperCase()).join('\n');
+        }
+        isUpperCase = !isUpperCase; 
+      });
+      
 
     // Sort
     document.getElementById('sort').addEventListener('click', () => {
       const lines = textArea.value.split('\n');
-      textArea.value = lines.sort((a, b) => a.localeCompare(b)).join('\n');
+      textArea.value = lines.sort((a, b) => {
+        if (a > b) return 1;   
+        if (a < b) return -1;  
+        return 0;              
+      }).join('\n');           
     });
 
     // Reverse

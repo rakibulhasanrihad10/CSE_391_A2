@@ -51,6 +51,8 @@ window.addEventListener("load", () => {
 
 
 
+/* ======== Quote Theme  ======== */
+
 const quoteBox = document.getElementById("quoteBox");
 const qpbox = document.getElementById("qpbox")
 const qpDiv = document.querySelector(".qp");
