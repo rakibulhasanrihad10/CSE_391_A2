@@ -150,6 +150,125 @@ function convert() {
 
 // ============= Converter =============
 
+
+// ============= Math Tools =============
+
+function analyzeNumbers() {
+    const input = document.getElementById('numberInput').value;
+    // Split the input into an array of strings
+    const items = input.split(',');
+    const numbers = [];
+    const all = []
+
+    // Manually validate each item
+    for (let i = 0; i < items.length; i++) {
+        const trimmedItem = items[i].trim(); 
+        if (!isNaN(trimmedItem) && trimmedItem !== '') {
+            numbers.push(Number(trimmedItem)); 
+        }
+        all.push(items[i]);
+    }
+
+    // console.log(all);
+
+    // If no valid numbers are provided
+    if (numbers.length === 0) {
+        document.getElementById('maxValue').textContent = '';
+        document.getElementById('minValue').textContent = '';
+        document.getElementById('sumValue').textContent = '';
+        document.getElementById('averageValue').textContent = '';
+        document.getElementById('reverseOrder').textContent = '';
+        return;
+    }
+
+    const max = Math.max(...numbers);
+    const min = Math.min(...numbers);
+    const sum = numbers.reduce((a, b) => a + b, 0);
+    const average = sum / numbers.length;
+    const reverseOrder = all.reverse().join(', ');
+
+    document.getElementById('maxValue').textContent = max;
+    document.getElementById('minValue').textContent = min;
+    document.getElementById('sumValue').textContent = sum;
+    document.getElementById('averageValue').textContent = average.toFixed(2);
+    document.getElementById('reverseOrder').textContent = reverseOrder;
+}
+
+// ============= Math Tools =============
+
+
+// ============= Magic Box =============
+
+const textArea = document.getElementById('text-area');
+
+    // Clear
+    document.getElementById('clear-it').addEventListener('click', () => {
+      textArea.value = '';
+    });
+
+    // Upper Lower
+    let isUpperCase = false;
+    document.getElementById('capitalize').addEventListener('click', () => {
+        const lines = textArea.value.split('\n'); 
+        if (isUpperCase) {
+          
+          textArea.value = lines.map(line => line.toLowerCase()).join('\n');
+        } else {
+          
+          textArea.value = lines.map(line => line.toUpperCase()).join('\n');
+        }
+        isUpperCase = !isUpperCase; 
+      });
+      
+
+    // Sort
+    document.getElementById('sort').addEventListener('click', () => {
+      const lines = textArea.value.split('\n');
+      textArea.value = lines.sort((a, b) => {
+        if (a > b) return 1;   
+        if (a < b) return -1;  
+        return 0;              
+      }).join('\n');           
+    });
+
+    // Reverse
+    document.getElementById('reverse').addEventListener('click', () => {
+        const lines = textArea.value.split('');
+        console.log(lines);
+        textArea.value = lines.reverse().join('');                         
+      });
+      
+
+    // Strip Blank
+    document.getElementById('strip-blank').addEventListener('click', () => {
+      const lines = textArea.value.split('\n');
+      textArea.value = lines
+        .map(line => line.trim())
+        .filter(line => line !== '')
+        .join('\n');
+    });
+
+    // Add Numbers
+    document.getElementById('add-numbers').addEventListener('click', () => {
+      const lines = textArea.value.split('\n');
+      textArea.value = lines.map((line, index) => `${index + 1}. ${line}`).join('\n');
+    });
+
+    // Shuffle
+    document.getElementById('shuffle').addEventListener('click', () => {
+      const lines = textArea.value.split('\n');
+      for (let i = lines.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [lines[i], lines[j]] = [lines[j], lines[i]];
+      }
+      textArea.value = lines.join('\n');
+    });
+
+
+
+// ============= Magic Box =============
+
+
 // ============= Quote Generator =============
 // const randomQuote = [
 //     "And whoever puts their trust in Allah, then He will suffice him",
@@ -202,124 +321,4 @@ autoQuote();
 
 gqbutton.addEventListener('click', autoQuote);
     
-
-
 // ============= Quote Generator =============
-
-
-// ============= Math Tools =============
-
-function analyzeNumbers() {
-    const input = document.getElementById('numberInput').value;
-    // Split the input into an array of strings
-    const items = input.split(',');
-    const numbers = [];
-
-    // Manually validate each item
-    for (let i = 0; i < items.length; i++) {
-        const trimmedItem = items[i].trim(); // Remove extra spaces
-        if (!isNaN(trimmedItem) && trimmedItem !== '') {
-            numbers.push(Number(trimmedItem)); // Add valid numbers to the array
-        }
-    }
-
-    // If no valid numbers are provided
-    if (numbers.length === 0) {
-        document.getElementById('maxValue').textContent = '';
-        document.getElementById('minValue').textContent = '';
-        document.getElementById('sumValue').textContent = '';
-        document.getElementById('averageValue').textContent = '';
-        document.getElementById('reverseOrder').textContent = '';
-        return;
-    }
-
-    const max = Math.max(...numbers);
-    const min = Math.min(...numbers);
-    const sum = numbers.reduce((a, b) => a + b, 0);
-    const average = sum / numbers.length;
-    const reverseOrder = numbers.reverse().join(', ');
-
-    document.getElementById('maxValue').textContent = max;
-    document.getElementById('minValue').textContent = min;
-    document.getElementById('sumValue').textContent = sum;
-    document.getElementById('averageValue').textContent = average.toFixed(2);
-    document.getElementById('reverseOrder').textContent = reverseOrder;
-}
-
-// ============= Math Tools =============
-
-
-// ============= Magic Box =============
-
-const textArea = document.getElementById('text-area');
-
-    // Clear
-    document.getElementById('clear-it').addEventListener('click', () => {
-      textArea.value = '';
-    });
-
-    // Upper Lower
-    let isUpperCase = false;
-    document.getElementById('capitalize').addEventListener('click', () => {
-        const lines = textArea.value.split('\n'); 
-        if (isUpperCase) {
-          
-          textArea.value = lines.map(line => line.toLowerCase()).join('\n');
-        } else {
-          
-          textArea.value = lines.map(line => line.toUpperCase()).join('\n');
-        }
-        isUpperCase = !isUpperCase; 
-      });
-      
-
-    // Sort
-    document.getElementById('sort').addEventListener('click', () => {
-      const lines = textArea.value.split('\n');
-      textArea.value = lines.sort((a, b) => {
-        if (a > b) return 1;   
-        if (a < b) return -1;  
-        return 0;              
-      }).join('\n');           
-    });
-
-    // Reverse
-    document.getElementById('reverse').addEventListener('click', () => {
-        const lines = textArea.value.split('\n');
-        textArea.value = lines
-          .map(line => line.split('').reverse().join('')) 
-          .reverse()                                     
-          .join('\n');                                   
-      });
-      
-
-    // Strip Blank
-    document.getElementById('strip-blank').addEventListener('click', () => {
-      const lines = textArea.value.split('\n');
-      textArea.value = lines
-        .map(line => line.trim())
-        .filter(line => line !== '')
-        .join('\n');
-    });
-
-    // Add Numbers
-    document.getElementById('add-numbers').addEventListener('click', () => {
-      const lines = textArea.value.split('\n');
-      textArea.value = lines.map((line, index) => `${index + 1}. ${line}`).join('\n');
-    });
-
-    // Shuffle
-    document.getElementById('shuffle').addEventListener('click', () => {
-      const lines = textArea.value.split('\n');
-      for (let i = lines.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [lines[i], lines[j]] = [lines[j], lines[i]];
-      }
-      textArea.value = lines.join('\n');
-    });
-
-
-
-// ============= Magic Box =============
-
-
